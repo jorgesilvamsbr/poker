@@ -4,25 +4,16 @@ import poker.Jogador;
 import poker.carta.Carta;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class DoisPares implements Jogada {
-    private int quantidadeDePar;
-    private int contador;
 
     @Override
     public TipoDaJogada validar(Jogador jogador) {
         List<Carta> cartas = jogador.obterCartas();
-        cartas.forEach(cartaSendoComparada -> {
-            contador = 0;
-            cartas.forEach(carta -> {
-                if (cartaSendoComparada.getValor().equals(carta.getValor())){
-                    contador++;
-                }
-            });
-            if(contador == 2){
-                quantidadeDePar++;
-            }
-        });
-        return quantidadeDePar == 2 ? TipoDaJogada.DOIS_PARES : TipoDaJogada.NENHUMA_JOGADA_ENCONTRADA;
+        Map<String, Long> valoresDasCartasAgrupados = cartas.stream().collect(Collectors.groupingBy(Carta::getValor, Collectors.counting()));
+        int quantidadeDePares = valoresDasCartasAgrupados.entrySet().stream().mapToInt(valorDaCartaAgrupado -> valorDaCartaAgrupado.getValue() == 2 ? 1 : 0).sum();
+        return quantidadeDePares == 2 ? TipoDaJogada.DOIS_PARES : TipoDaJogada.NENHUMA_JOGADA_ENCONTRADA;
     }
 }

@@ -55,4 +55,18 @@ public class ArbitroTest {
 
         assertEquals(jogador2, vencedor);
     }
+
+    @Test
+    public void deve_dar_o_resultado_do_jogo_para_o_jogador_um_que_tem_o_par_com_maior_valor() throws Exception {
+        List<Carta> cartas1 = Arrays.asList(Carta.criar("4", Naipe.OURO), Carta.criar("6", Naipe.ESPADAS), Carta.criar("9", Naipe.COPA), Carta.criar("Q", Naipe.COPA), Carta.criar("Q", Naipe.PAUS));
+        List<Carta> cartas2 = Arrays.asList(Carta.criar("3", Naipe.OURO), Carta.criar("6", Naipe.OURO), Carta.criar("7", Naipe.COPA), Carta.criar("Q", Naipe.OURO), Carta.criar("Q", Naipe.ESPADAS));
+        MaoDeCarta maoDeCartas1 = new MaoDeCarta(cartas1);
+        MaoDeCarta maoDeCartas2 = new MaoDeCarta(cartas2);
+        Jogador jogador1 = new Jogador(maoDeCartas1);
+        Jogador jogador2 = new Jogador(maoDeCartas2);
+
+        Jogador vencedor = arbitro.obterVencedor(jogador1, jogador2);
+
+        assertEquals(jogador1, vencedor);
+    }
 }
