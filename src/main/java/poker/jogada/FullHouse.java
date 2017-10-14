@@ -6,6 +6,8 @@ public class FullHouse implements Jogada {
 
     @Override
     public TipoDaJogada validar(Jogador jogador) {
-        return TipoDaJogada.NENHUMA_JOGADA_ENCONTRADA;
+        Trinca jogadaTrinca = new Trinca();
+        UmPar jogadaUmPar = new UmPar();
+        return jogadaTrinca.validar(jogador).isTrinca() && jogadaUmPar.validar(jogador).isUmPar() ? TipoDaJogada.FULL_HOUSE : TipoDaJogada.NENHUMA_JOGADA_ENCONTRADA;
     }
 }

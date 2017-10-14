@@ -40,7 +40,15 @@ public enum TipoDaJogada {
         return this.getPesoDaJogada() > tipoDaJogada.getPesoDaJogada();
     }
 
-    public boolean ehSemJogada() {
+    public boolean isSemJogada() {
         return NENHUMA_JOGADA_ENCONTRADA.equals(this);
+    }
+
+    public boolean isTrinca() {
+        return TRINCA.equals(this);
+    }
+
+    public boolean isUmPar() {
+        return UM_PAR.equals(this);
     }
 }
