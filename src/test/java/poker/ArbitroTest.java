@@ -69,4 +69,18 @@ public class ArbitroTest {
 
         assertEquals(jogador1, vencedor);
     }
+
+    @Test
+    public void deve_dar_o_resultado_do_jogo_para_o_jogador_um_que_tem_o_full_house_com_maior_valor() throws Exception {
+        List<Carta> cartas1 = Arrays.asList(Carta.criar("2", Naipe.COPA), Carta.criar("2", Naipe.OURO), Carta.criar("4", Naipe.PAUS), Carta.criar("4", Naipe.OURO), Carta.criar("4", Naipe.ESPADAS));
+        List<Carta> cartas2 = Arrays.asList(Carta.criar("3", Naipe.PAUS), Carta.criar("3", Naipe.OURO), Carta.criar("9", Naipe.ESPADAS), Carta.criar("9", Naipe.ESPADAS), Carta.criar("9", Naipe.OURO));
+        MaoDeCarta maoDeCartas1 = new MaoDeCarta(cartas1);
+        MaoDeCarta maoDeCartas2 = new MaoDeCarta(cartas2);
+        Jogador jogador1 = new Jogador(maoDeCartas1);
+        Jogador jogador2 = new Jogador(maoDeCartas2);
+
+        Jogador vencedor = arbitro.obterVencedor(jogador1, jogador2);
+
+        assertEquals(jogador1, vencedor);
+    }
 }

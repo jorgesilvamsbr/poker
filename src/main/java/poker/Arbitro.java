@@ -30,7 +30,7 @@ public class Arbitro {
             resultadoDoJogador1 = jogada.validar(jogador1).isSemJogada() ? resultadoDoJogador1 : jogada.validar(jogador1);
             resultadoDoJogador2 = jogada.validar(jogador2).isSemJogada() ? resultadoDoJogador2 : jogada.validar(jogador2);
         }
-        if(casoOsJogadoresPossuemAMesmaMao(resultadoDoJogador1, resultadoDoJogador2)){
+        if (casoOsJogadoresPossuemAMesmaMao(resultadoDoJogador1, resultadoDoJogador2)) {
             return retornaOJogadorComAMaoDeMaiorValor(jogador1, jogador2);
         }
         return resultadoDoJogador1.ehMaiorQue(resultadoDoJogador2) ? jogador1 : jogador2;
