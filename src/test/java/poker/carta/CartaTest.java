@@ -1,10 +1,6 @@
 package poker.carta;
 
 import org.junit.Test;
-import poker.carta.Carta;
-import poker.carta.Naipe;
-import poker.carta.NaipeInformadoEhNulo;
-import poker.carta.ValorInformadoInvalido;
 
 import static org.junit.Assert.assertEquals;
 

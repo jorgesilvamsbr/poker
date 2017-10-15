@@ -7,6 +7,8 @@ import java.util.HashMap;
 
 public class Arbitro {
     private static final HashMap<TipoDaJogada, Class<? extends Jogada>> mapaDeJogadas = new HashMap<>();
+    private TipoDaJogada resultadoDoJogador1 = TipoDaJogada.NENHUMA_JOGADA_ENCONTRADA;
+    private TipoDaJogada resultadoDoJogador2 = TipoDaJogada.NENHUMA_JOGADA_ENCONTRADA;
 
     static {
         mapaDeJogadas.put(TipoDaJogada.CARTA_ALTA, CartaAlta.class);
@@ -21,8 +23,6 @@ public class Arbitro {
         mapaDeJogadas.put(TipoDaJogada.ROYAL_FLUSH, RoyalFlush.class);
     }
 
-    private TipoDaJogada resultadoDoJogador1 = TipoDaJogada.NENHUMA_JOGADA_ENCONTRADA;
-    private TipoDaJogada resultadoDoJogador2 = TipoDaJogada.NENHUMA_JOGADA_ENCONTRADA;
 
     public Jogador obterVencedor(final Jogador jogador1, final Jogador jogador2) throws IllegalAccessException, InstantiationException {
         for (TipoDaJogada tipoDaJogada : TipoDaJogada.obterTodas()) {
