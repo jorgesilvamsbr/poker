@@ -1,24 +1,18 @@
 package poker.carta;
 
 public enum Naipe {
-	OURO("D", 1),
-	COPA("H", 2),
-	ESPADAS("S", 3),
-	PAUS("C", 4);
+	OURO("D"),
+	COPA("H"),
+	ESPADAS("S"),
+	PAUS("C");
 
 	private String descricao;
-	private int valor;
 
-	private Naipe(String descricao, int valor){
+	Naipe(String descricao){
 		this.descricao = descricao;
-		this.valor = valor;
 	}
 	
 	public String getDescricao() {
 		return descricao;
-	}
-
-	public int getValor() {
-		return valor;
 	}
 }

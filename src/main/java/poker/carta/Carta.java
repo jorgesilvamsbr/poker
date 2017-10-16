@@ -36,7 +36,7 @@ public class Carta {
 	}
 
 	public Integer calcularOValorDaCarta() {
-		return this.naipe.getValor() + converterOValorCasoSejaUmaCartaEspecial();
+		return converterOValorCasoSejaUmaCartaEspecial();
 	}
 
 	private int converterOValorCasoSejaUmaCartaEspecial() {

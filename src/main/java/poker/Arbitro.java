@@ -21,20 +21,19 @@ public class Arbitro {
     private TipoDaJogada resultadoDoJogador1 = TipoDaJogada.NENHUMA_JOGADA_ENCONTRADA;
     private TipoDaJogada resultadoDoJogador2 = TipoDaJogada.NENHUMA_JOGADA_ENCONTRADA;
 
-
     public Jogador obterVencedor(final Jogador jogador1, final Jogador jogador2) throws IllegalAccessException, InstantiationException {
         for (TipoDaJogada tipoDaJogada : TipoDaJogada.obterTodas()) {
             Jogada jogada = mapaDeJogadas.get(tipoDaJogada).newInstance();
             resultadoDoJogador1 = jogada.validar(jogador1).isSemJogada() ? resultadoDoJogador1 : jogada.validar(jogador1);
             resultadoDoJogador2 = jogada.validar(jogador2).isSemJogada() ? resultadoDoJogador2 : jogada.validar(jogador2);
         }
-        if (casoOsJogadoresPossuemAMesmaMao(resultadoDoJogador1, resultadoDoJogador2)) {
+        if (jogadoresPossuemOMesmoTipoDeJogada(resultadoDoJogador1, resultadoDoJogador2)) {
             return mapaDeJogadas.get(resultadoDoJogador1).newInstance().desempata(jogador1, jogador2);
         }
         return resultadoDoJogador1.ehMaiorQue(resultadoDoJogador2) ? jogador1 : jogador2;
     }
 
-    private boolean casoOsJogadoresPossuemAMesmaMao(TipoDaJogada resultadoDoJogador1, TipoDaJogada resultadoDoJogador2) {
+    private boolean jogadoresPossuemOMesmoTipoDeJogada(TipoDaJogada resultadoDoJogador1, TipoDaJogada resultadoDoJogador2) {
         return resultadoDoJogador1.equals(resultadoDoJogador2);
     }
 }
