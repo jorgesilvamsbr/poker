@@ -16,4 +16,9 @@ public class DoisPares implements Jogada {
         int quantidadeDePares = valoresDasCartasAgrupados.entrySet().stream().mapToInt(valorDaCartaAgrupado -> valorDaCartaAgrupado.getValue() == 2 ? 1 : 0).sum();
         return quantidadeDePares == 2 ? TipoDaJogada.DOIS_PARES : TipoDaJogada.NENHUMA_JOGADA_ENCONTRADA;
     }
+
+    @Override
+    public Jogador desempata(Jogador jogador1, Jogador jogador2) {
+        return null;
+    }
 }

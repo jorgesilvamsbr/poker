@@ -19,4 +19,9 @@ public class Quadra implements Jogada{
         });
         return quantidadeDeCartasIguais == 4 ? TipoDaJogada.QUADRA : TipoDaJogada.NENHUMA_JOGADA_ENCONTRADA;
     }
+
+    @Override
+    public Jogador desempata(Jogador jogador1, Jogador jogador2) {
+        return null;
+    }
 }

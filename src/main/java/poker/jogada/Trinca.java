@@ -22,4 +22,9 @@ public class Trinca implements Jogada {
         }
         return quantidadeDeCartasIguais == 3 ? TipoDaJogada.TRINCA : TipoDaJogada.NENHUMA_JOGADA_ENCONTRADA;
     }
+
+    @Override
+    public Jogador desempata(Jogador jogador1, Jogador jogador2) {
+        return null;
+    }
 }

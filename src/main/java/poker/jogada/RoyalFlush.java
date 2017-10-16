@@ -17,6 +17,11 @@ public class RoyalFlush implements Jogada {
         return TipoDaJogada.NENHUMA_JOGADA_ENCONTRADA;
     }
 
+    @Override
+    public Jogador desempata(Jogador jogador1, Jogador jogador2) {
+        return null;
+    }
+
     private boolean sequenciaCorretaParaRoyalFlush(List<Carta> cartas) {
         List<String> valoresParaRoyalFlush = Arrays.asList("10", "J", "Q", "K", "A");
         return valoresParaRoyalFlush.containsAll(cartas.stream().map(c -> c.getValor()).collect(Collectors.toList()));
